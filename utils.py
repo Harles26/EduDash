@@ -10,11 +10,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 import streamlit as st
 
-def load_data(uploaded_file):
+def load_data(uploaded_file, delimiter):
     """Carga los datos desde un archivo CSV o Excel subido."""
     try:
         if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
+            df = pd.read_csv(uploaded_file, delimiter=delimiter)
         elif uploaded_file.name.endswith('.xlsx'):
             df = pd.read_excel(uploaded_file)
         return df
@@ -125,3 +125,21 @@ def predictive_analysis(df):
         st.write('### Importancia de las Variables')
         feature_importances = pd.Series(model.feature_importances_, index=feature_columns).sort_values(ascending=False)
         st.bar_chart(feature_importances)
+
+def main():
+    st.title("Análisis de Datos Interactivo")
+    uploaded_file = st.sidebar.file_uploader("Sube un archivo CSV o Excel", type=["csv", "xlsx"])
+
+    delimiter = st.sidebar.radio("Selecciona el delimitador del archivo CSV", (",", ";"))
+
+    if uploaded_file is not None:
+        df = load_data(uploaded_file, delimiter)
+        if df is not None:
+            perform_eda(df)
+            clustering_analysis(df)
+            regression_analysis(df)
+            correlation_analysis(df)
+            predictive_analysis(df)
+
+if __name__ == "__main__":
+    main()
