@@ -10,7 +10,8 @@ def main():
     uploaded_file = st.sidebar.file_uploader('Elige un archivo CSV o Excel', type=['csv', 'xlsx'])
 
     if uploaded_file is not None:
-        df = load_data(uploaded_file)
+        delimiter = st.sidebar.radio("Selecciona el delimitador del archivo CSV", (",", ";"))
+        df = load_data(uploaded_file, delimiter)
         st.write('### Vista previa de los datos')
         st.write(df.head())
         
