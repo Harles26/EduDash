@@ -1,22 +1,6 @@
-Instrucciones para los Usuarios
-Subida de Archivos:
-Sube un archivo CSV o Excel utilizando el botón de carga en la barra lateral de la aplicación.
-
-Exploración de Datos:
-Una vez cargado el archivo, se mostrará una vista previa de los datos. Revisa esta vista previa para asegurarte de que los datos se han cargado correctamente.
-
-Selección de Análisis:
-Utiliza las opciones de la barra lateral para seleccionar el tipo de análisis que deseas realizar: Análisis Exploratorio de Datos, Análisis de Clustering, Análisis de Regresión, Visualización de Correlaciones, o Análisis Predictivo.
-
-Clustering:
-Selecciona al menos dos columnas numéricas para realizar el análisis de clustering.
-Especifica el número de clusters que deseas utilizar.
-
-Regresión:
-Selecciona la variable objetivo (dependiente) y al menos una variable predictora (independiente) para realizar el análisis de regresión.
-
-Visualización de Correlaciones:
-Asegúrate de que el archivo contenga suficientes columnas numéricas para generar una matriz de correlaciones significativa.
-
-Análisis Predictivo:
-Selecciona la variable objetivo y las variables predictoras para realizar el análisis predictivo utilizando el modelo Random Forest.
+streamlit
+pandas
+seaborn
+matplotlib
+plotly
+scikit-learn
